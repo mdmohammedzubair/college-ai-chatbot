@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Student Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f6f4;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .login-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            width: min(350px, 85%);
+            box-shadow: 0 8px 30px #0001;
+        }
+        input, button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 14px;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+        input { border: 1px solid #ccc; }
+        button {
+            background: #176e69;
+            color: white;
+            border: 0;
+            cursor: pointer;
+        }
+        .message { color: #b42318; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>Admin Login</h2>
+        <p>College Student Assistant</p>
+
+        {% for message in get_flashed_messages() %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+
+        <form method="POST">
+            <input type="password" name="password"
+                   placeholder="Enter admin password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
